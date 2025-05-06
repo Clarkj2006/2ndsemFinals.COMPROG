@@ -1,0 +1,71 @@
+package FINALSOUTPUT;
+import javax.swing.JOptionPane;
+public class SYSTEM1 {
+	
+	
+	public static void main(String[] args) {
+	        String[] candidates = {"Adrian", "Clark", "Charlie", "Mike", "Miro", "Matthew", "Shyriel"};
+	        int[] votes = new int[candidates.length];
+	        boolean keepVoting = true;
+
+	        while (keepVoting) {
+	            // Show voting options
+	            String vote = (String) JOptionPane.showInputDialog(
+	                null,
+	                "Vote for your candidate:",
+	                "Voting System",
+	                JOptionPane.QUESTION_MESSAGE,
+	                null,
+	                candidates,
+	                candidates[0]
+	            );
+
+	            // Count vote
+	            if (vote != null) {
+	                for (int i = 0; i < candidates.length; i++) {
+	                    if (candidates[i].equals(vote)) {
+	                        votes[i]++;
+	                        break;
+	                    }
+	                }
+	            }
+
+	            // Ask if user wants to continue
+	            int option = JOptionPane.showConfirmDialog(
+	                null,
+	                "Do you want to continue voting?",
+	                "Continue?",
+	                JOptionPane.YES_NO_OPTION
+	            );
+
+	            if (option == JOptionPane.NO_OPTION) {
+	                keepVoting = false;
+	            }
+	        }
+
+	        // Show results
+	        StringBuilder result = new StringBuilder("Voting Results:\n");
+	        int maxVotes = 0;
+	        String winner = "";
+
+	        for (int i = 0; i < candidates.length; i++) {
+	            result.append(candidates[i]).append(": ").append(votes[i]).append(" votes\n");
+	            if (votes[i] > maxVotes) {
+	                maxVotes = votes[i];
+	                winner = candidates[i];
+	            } else if (votes[i] == maxVotes) {
+	                winner = "Tie";
+	            }
+	        }
+
+	        result.append("\nWinner: ").append(winner);
+	        JOptionPane.showMessageDialog(null, result.toString(), "Final Results", JOptionPane.INFORMATION_MESSAGE);
+	      
+	 
+	        
+	       
+	    }
+	}
+
+
+
