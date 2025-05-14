@@ -9,7 +9,7 @@ public class SYSTEM1 {
 	        boolean keepVoting = true;
 
 	        while (keepVoting) {
-	            // Show voting options
+	           
 	            String vote = (String) JOptionPane.showInputDialog(
 	                null,
 	                "Vote for your candidate:",
@@ -20,7 +20,7 @@ public class SYSTEM1 {
 	                candidates[0]
 	            );
 
-	            // Count vote
+	          
 	            if (vote != null) {
 	                for (int i = 0; i < candidates.length; i++) {
 	                    if (candidates[i].equals(vote)) {
